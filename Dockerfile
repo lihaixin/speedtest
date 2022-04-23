@@ -1,4 +1,4 @@
-FROM alpine:3.15
+FROM --platform=${TARGETPLATFORM} alpine:3.15
 MAINTAINER FAN VINGA<fanalcest@gmail.com>
 
 COPY . /app/

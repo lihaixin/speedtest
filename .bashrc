@@ -8,6 +8,9 @@ if [ -f "/etc/envfile" ]; then
 export $(grep -v '^#' /etc/envfile | xargs)
 fi
 
+: ${MainINF:=$(ip route | grep "default via" |awk '{ print $5}')}
+: ${MainIP:=$(/sbin/ifconfig $MainINF | grep 'inet' | awk '{ print $2}' | awk -F ":" '{print $2 }' | head -n 1)}
+IP=$(curl -s  ip.sb)
 # Aliases
 alias l='ls -lAsh --color'
 alias ls='ls -C1 --color'
@@ -23,6 +26,8 @@ figlet -k -f big -c -m-1 -w 120 "Welcome `hostname`"
 echo " # ------------------------------------------------------------------------------------------------ #"
 echo " # 在线测试网速的小工具,部署到海外机房 "
 echo " # 特别适合需要经常测试访问外网的用户 "
+echo " # $DOCKERID (外网IP) 测速地址: http://$IP:80 （如更改映射的端口，请使用对应端口替换80）"
+echo " # $DOCKERID (内网IP) 测速地址: http://$MainIP:80  （如更改映射的端口，请使用对应端口替换80）"
 echo " # "
 echo " # 更多信息访问网页查看： https://hub.docker.com/r/lihaixin/speedtest "
 echo " # ------------------------------------------------------------------------------------------------ #"

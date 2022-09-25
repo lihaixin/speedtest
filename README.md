@@ -5,5 +5,25 @@ docker buildx build --platform linux/arm64,linux/amd64 -t lihaixin/speedtest htt
 ## 用法：
 
 ```
-docker run -itd --name speedtest --restart=always -p 0.0.0.0:80:80 lihaixin/speedtest
+docker run -itd --name speedtest --hostname speedtest --restart=always -p 0.0.0.0:80:80 lihaixin/speedtest
+```
+
+### docker-compose.yml
+
+```
+version: "3.7"
+services:
+  speedtest:
+    image: lihaixin/speedtest
+    container_name: speedtest
+    hostname: speedtest
+    restart: unless-stopped
+    network_mode: "bridge"
+    logging:
+      driver: json-file
+      options:
+        max-size: 1m
+    ports:
+      - "80:80"
+
 ```

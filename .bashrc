@@ -24,7 +24,7 @@ echo " # -----------------------------------------------------------------------
 if [ -f "/etc/member" ]; then
 MEMBER=`cat /etc/member`
 if [ "$MEMBER" == "0" ]; then
-echo " # `cat /etc/npsnotice` "
+# echo " # `cat /etc/npsnotice` "
 else
 echo " # 容器ID: `cat /etc/dockerid` "
 fi

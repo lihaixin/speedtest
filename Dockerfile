@@ -16,6 +16,8 @@ RUN apk --no-cache add php7		 \
     sed -i "s/memory_limit = 128M/memory_limit = 512M/g"             /etc/php7/php.ini && \
     sed -i "s/upload_max_filesize = 2M/upload_max_filesize = 100M/g" /etc/php7/php.ini && \
     sed -i "s/post_max_size = 8M/post_max_size = 100M/g"             /etc/php7/php.ini
-
-CMD ntp & && nginx && \
-    php-fpm7 --nodaemonize --fpm-config /etc/php7/php-fpm.conf -c /etc/php7/php.ini
+    
+ADD ./.bashrc /root/.bashrc
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]

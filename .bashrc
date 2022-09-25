@@ -29,7 +29,8 @@ else
 echo " # 容器ID: `cat /etc/dockerid` "
 fi
 fi
-echo " # 重启程序: 输入 <reboot> "
+echo " # 一款在线测试网速的小工具 "
+echo " # 特别适合需要经常测试访问外网的用户 "
 echo " # "
 echo " # 更多信息访问网页查看： https://hub.docker.com/r/lihaixin/speedtest "
 echo " # ------------------------------------------------------------------------------------------------ #"

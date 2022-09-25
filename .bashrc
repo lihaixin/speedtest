@@ -21,15 +21,7 @@ alias reboot='pkill -s 1;sleep 1;pkill -s 1'
 echo -e -n '\E[1;34m'
 figlet -k -f big -c -m-1 -w 120 "Welcome `hostname`"
 echo " # ------------------------------------------------------------------------------------------------ #"
-if [ -f "/etc/member" ]; then
-MEMBER=`cat /etc/member`
-if [ "$MEMBER" == "0" ]; then
-# echo " # `cat /etc/npsnotice` "
-else
-echo " # 容器ID: `cat /etc/dockerid` "
-fi
-fi
-echo " # 一款在线测试网速的小工具 "
+echo " # 在线测试网速的小工具,部署到海外机房 "
 echo " # 特别适合需要经常测试访问外网的用户 "
 echo " # "
 echo " # 更多信息访问网页查看： https://hub.docker.com/r/lihaixin/speedtest "

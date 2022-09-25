@@ -4,6 +4,8 @@ docker buildx build --platform linux/arm64,linux/amd64 -t lihaixin/speedtest htt
 ```
 ## 用法：
 
+### CLI
+
 ```
 docker run -itd --name speedtest --hostname speedtest --restart=always -p 0.0.0.0:80:80 lihaixin/speedtest
 ```
@@ -25,5 +27,10 @@ services:
         max-size: 1m
     ports:
       - "80:80"
+
+```
+## 终端截图
+
+```
 
 ```

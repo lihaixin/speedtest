@@ -5,5 +5,5 @@ docker buildx build --platform linux/arm64,linux/amd64 -t lihaixin/speedtest htt
 ## 用法：
 
 ```
-docker run -d --name speedtest --restart=always -p 0.0.0.0:80:80 lihaixin/speedtest
+docker run -itd --name speedtest --restart=always -p 0.0.0.0:80:80 lihaixin/speedtest
 ```

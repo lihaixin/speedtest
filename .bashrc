@@ -19,7 +19,7 @@ alias rm='rm -i'
 alias mv='mv -i'
 alias tmux='tmux -u'
 alias h='cd ~;clear;'
-alias reboot='pkill -s 1;sleep 1;pkill -s 1'
+alias reboot='kill -9 `pgrep php-fpm` 1> /dev/null 2>&1;sleep 1;pkill -s 1'
 
 echo -e -n '\E[1;34m'
 figlet -k -f big -c -m-1 -w 120 "Welcome `hostname`"
